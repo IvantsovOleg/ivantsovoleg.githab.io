@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Шпаргалка Linux</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    <div class="alert alert-info" role="alert"><h3>Спецальные символы и символьные операторы</h3></div>
+    <dl class="row">
+        <dt class="col-3">.</dt>
+        <dd class="col-9">Текущая директория</dd>
+
+        <dt class="col-3">..</dt>
+        <dd class="col-9">Директория на уровень выше</dd>
+
+        <dt class="col-3">~</dt>
+        <dd class="col-9">Домашняя директория</dd>
+
+        <dt class="col-3">*</dt>
+        <dd class="col-9">Любое количество символов</dd>
+
+        <dt class="col-3">?</dt>
+        <dd class="col-9">Ровно один любой символ</dd>
+
+        <dt class="col-3">Программа < файл</dt>
+        <dd class="col-9">Брать исходные данные (stdin) для выполнение программы из файла</dd>
+
+        <dt class="col-3">Программа > файл</dt>
+        <dd class="col-9">Выподить результат выполения программы (stdout) из файла (каждый запуск команды будет перезаписывать файл)</dd>
+
+        <dt class="col-3">Программа 2> файл</dt>
+        <dd class="col-9">Выподить ошибочный результат выполения программы (stdout) из файла (каждый запуск команды будет перезаписывать файл)</dd>
+
+        <dt class="col-3">Программа >> файл</dt>
+        <dd class="col-9">Выподить результат выполения программы (stdout) из файла (каждый запуск команды будет дополнять файл)</dd>
+
+        <dt class="col-3">Программа 2>> файл</dt>
+        <dd class="col-9">Выподить ошибочный результат выполения программы (stdout) из файла (каждый запуск команды будет дополнять файл)</dd>
+
+        <dt class="col-3">Прогр1 | Прогр2 | ... | ПрогрN</dt>
+        <dd class="col-9">Конвейер (pipe). Передает результат выполнения (stdout) Прогр1 в качестве входных параметров (stdin) для Прогр2 и так далее по всей цепочке</dd>
+    </dl>
+
+
+
+    <div class="alert alert-info" role="alert"><h3>Команды</h3></div>
+    <dl class="row">
+        <dt class="col-3">pwd</dt>
+        <dd class="col-9">Вывод на экран адрес директории где сейчас находится пользователь</dd>
+
+        <dt class="col-3">man <i class="text-muted font-weight-normal">команда</i></dt>
+        <dd class="col-9">Вывод на экран справки о команде (выход Q)</dd>
+
+        <dt class="col-3">clear</dt>
+        <dd class="col-9">Очистка экрана</dd>
+
+        <dt class="col-3">exit</dt>
+        <dd class="col-9">Закрыть терминал</dd>
+
+        <dt class="col-3">ls <i class="text-muted font-weight-normal">опции путь</i></dt>
+        <dd class="col-9">Выведет на экран содержимое директории
+            <dl class="row text-muted">
+                <dt class="col-3">-a (--all)</dt>
+                <dd class="col-9">Отобразить все файлы</dd>
+
+                <dt class="col-3">-h (--human-readable)</dt>
+                <dd class="col-9">Файлы отобразятся в читаемом для человека виде</dd>
+
+                <dt class="col-3">-l</dt>
+                <dd class="col-9">Добавит информацию правах доступа и о размерах файлов</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">cd <i class="text-muted font-weight-normal">путь</i></dt>
+        <dd class="col-9">Перейти в директорию</dd>
+
+        <dt class="col-3">mkdir <i class="text-muted font-weight-normal">опции путь</i></dt>
+        <dd class="col-9">Создать директорию
+            <dl class="row text-muted">
+                <dt class="col-3">-p</dt>
+                <dd class="col-9">Создать директорию и ее родителей</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">touch <i class="text-muted font-weight-normal">путь</i></dt>
+        <dd class="col-9">Создать файл</dd>
+
+        <dt class="col-3">rm <i class="text-muted font-weight-normal">опции путь</i></dt>
+        <dd class="col-9">Удалить файл
+            <dl class="row text-muted">
+                <dt class="col-3">-r</dt>
+                <dd class="col-9">Удалить директорию</dd>
+
+                <dt class="col-3">-rf</dt>
+                <dd class="col-9">Удалить директорию без вопросов</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">cp <i class="text-muted font-weight-normal">опции путь_1 путь_2</i></dt>
+        <dd class="col-9">Скопировать файл, расположенный по пути_1 в файл расположенный по пути_2
+            <dl class="row text-muted">
+                <dt class="col-3">-r</dt>
+                <dd class="col-9">Копировать директорию расположенную по пути_1 в директорию расположенную по пути_2</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">mv <i class="text-muted font-weight-normal">путь_1 путь_2</i></dt>
+        <dd class="col-9">Переместить директорию или файл расположенную по пути_1 в директорию расположенную по пути_2</dd>
+
+        <dt class="col-3">fg</dt>
+        <dd class="col-9">Продолжить выполнение ранее запущенной программы (используется в терминале после сочетания клавиш Ctrl + Z для возврата программы в "активное" состояние)</dd>
+
+        <dt class="col-3">bg</dt>
+        <dd class="col-9">Перевести выполнение ранее запущенной программы в фоновый режим. Т.е. выполнение программы продолжиться, при этом в терминале можно будет запускать другие программы и терминал становится отвязан от программы (используется после сочетания клавиш Ctrl + Z)</dd>
+
+        <dt class="col-3">cat <i class="text-muted font-weight-normal">путь_до_файла</i></dt>
+        <dd class="col-9">Вывести содержимое файла на экран</dd>
+
+        <dt class="col-3">less <i class="text-muted font-weight-normal">путь_до_файла</i></dt>
+        <dd class="col-9">Открыть файл на чтение (q - выход, / - поиск, g - в начало, G - в конец)</dd>
+
+        <dt class="col-3">nano <i class="text-muted font-weight-normal">путь_до_файла</i></dt>
+        <dd class="col-9">Редактировать файл (Ctrl + X - выход)</dd>
+
+        <dt class="col-3">wget <i class="text-muted font-weight-normal">опции путь ссылка</i></dt>
+        <dd class="col-9">Скачать файл (в опциях задаются параметры/настройки для загрузки) по ссылке и расположить его в директории, указанной в пути
+            <dl class="row text-muted">
+                <dt class="col-3">-P <i class="text-muted font-weight-normal">путь ссылка</i></dt>
+                <dd class="col-9">Опция указывающая путь до диреткории, в которую необходимо положить файл загруженный по ссылке</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-О <i class="text-muted font-weight-normal">путь ссылка</i></dt>
+                <dd class="col-9">Опция указывающая путь до диреткории, а также название, под которым необходимо сохранить файл, загруженный по ссылке</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-c <i class="text-muted font-weight-normal">ссылка</i></dt>
+                <dd class="col-9">Докачать файл по ссылке в случае обрыва связи</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">--spider <i class="text-muted font-weight-normal">ссылка</i></dt>
+                <dd class="col-9">Проверить доступность файла по ссылке</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-i <i class="text-muted font-weight-normal">тестовый_файл</i></dt>
+                <dd class="col-9">Скачать несколько файлов по ссылкам из текстового файла</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-r-l <i class="text-muted font-weight-normal">глубина ссылка</i></dt>
+                <dd class="col-9">Рекурсивное скачивание файлов по ссылке на указанную глубину (по умолчанию глубина 5)</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-r-A <i class="text-muted font-weight-normal">тип,тип,...,тип ссылка</i></dt>
+                <dd class="col-9">Рекурсивное скачивание файлов только опреденного типа (типов)</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">unzip <i class="text-muted font-weight-normal">архив.zip</i></dt>
+        <dd class="col-9">Распаковать содержимое архива.zip</dd>
+
+        <dt class="col-3">zip <i class="text-muted font-weight-normal">архив.zip файл1 файл2 ...</i></dt>
+        <dd class="col-9">Запаковать перечисленные файлы и/или папки в архив.zip</dd>
+
+        <dt class="col-3">gunzip <i class="text-muted font-weight-normal">архив.gz</i></dt>
+        <dd class="col-9">Распаковать содержимое архива.gz, при этом после распаковки архива файл архив.gz удалиться</dd>
+
+        <dt class="col-3">gzip <i class="text-muted font-weight-normal">файл</i></dt>
+        <dd class="col-9">Запаковать файл в файл.gz, исходный файл удалить</dd>
+
+        <dt class="col-3">tar <i class="text-muted font-weight-normal">опции архив.tar файл1 файл2 ...</i></dt>
+        <dd class="col-9">Запаковать перечисленный файлы и/или папки в архив.tar без сжатия
+            <dl class="row text-muted">
+                <dt class="col-3">-c <i class="text-muted font-weight-normal"></i></dt>
+                <dd class="col-9">Опция создания архива</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-v <i class="text-muted font-weight-normal"></i></dt>
+                <dd class="col-9">Опция вывода информации на экран</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-f <i class="text-muted font-weight-normal"></i></dt>
+                <dd class="col-9">Опция сообщающая программе что создаваться будет файл на файловой системе (всегда в конце)</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-z <i class="text-muted font-weight-normal">архив.tar.gz файл1 файл2 ...</i></dt>
+                <dd class="col-9">Опция которая сразу архивирует перечисленные файлы и/или папки в архив.tar.gz (с сжатием при помощи gzip)</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-x <i class="text-muted font-weight-normal">архив.tar</i></dt>
+                <dd class="col-9">Опция которая распакует архив.tar</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-xz <i class="text-muted font-weight-normal">архив.tar.gz</i></dt>
+                <dd class="col-9">Опция которая сразу распакует архив.tar.gz с использованием gunzip</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">find <i class="text-muted font-weight-normal"><папка></i> -name <i class="text-muted font-weight-normal">"<имя файла>"</i></dt>
+        <dd class="col-9">Поиск файлов в файловой системе по имени (по части имени)</dd>
+
+        <dt class="col-3">grep <i class="text-muted font-weight-normal">опции "<строка>" <файл></i></dt>
+        <dd class="col-9">Поиск внутри файла строки с опциями или без
+            <dl class="row text-muted">
+                <dt class="col-3">-c</dt>
+                <dd class="col-9">Опция которая посчитает количество вхождений строки</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-r/dt>
+                <dd class="col-9">Опция которая даст команду программе производить поиск во всех файлах в папке</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">ssh <i class="text-muted font-weight-normal">логин@адрес_сервера опции</i></dt>
+        <dd class="col-9">Вход по SSH на сервер
+            <dl class="row text-muted">
+                <dt class="col-3">-p</dt>
+                <dd class="col-9">Опция сообщающая порт подключения (не обязательно)</dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">scp <i class="text-muted font-weight-normal">опции логин@адрес_сервера:путь1 путь2</i></dt>
+        <dd class="col-9">Копирование файлов с сервера (путь1) на клиента (путь2)
+            <dl class="row text-muted">
+                <dt class="col-3">-P</dt>
+                <dd class="col-9">Опция сообщающая порт подключения </dd>
+            </dl>
+        </dd>
+
+        <dt class="col-3">scp <i class="text-muted font-weight-normal">опции путь1 логин@адрес_сервера:путь2</i></dt>
+        <dd class="col-9">Копирование файлов с клента (путь1) на сервер (путь2)
+            <dl class="row text-muted">
+                <dt class="col-3">-P</dt>
+                <dd class="col-9">Опция сообщающая порт подключения </dd>
+            </dl>
+        </dd>
+    </dl>
+
+
+
+    <div class="alert alert-info" role="alert"><h3>Горячие клавиши</h3></div>
+    <dl class="row">
+        <dt class="col-3">Tab</dt>
+        <dd class="col-9">Показать возможные варианты завершения набраной части команды. Двойное нажатие приведет к выбору первого значения из предложенных вариантов</dd>
+
+        <dt class="col-3">Ctrl + Alt + t</dt>
+        <dd class="col-9">Запуск терминала в графической оболочке</dd>
+
+        <dt class="col-3">Ctrl + C</dt>
+        <dd class="col-9">Прервать выполнение текущей программы</dd>
+
+        <dt class="col-3">Ctrl + Z</dt>
+        <dd class="col-9">Приостановить выполнение текущей программы</dd>
+
+        <dt class="col-3">Ctrl + Shift + C</dt>
+        <dd class="col-9">Скопировать выделенный текст (аналог Ctrl + C)</dd>
+
+        <dt class="col-3">Ctrl + Shift + V</dt>
+        <dd class="col-9">Скопировать выделенный текст (аналог Ctrl + V)</dd>
+
+        <dt class="col-3">Ctrl + A</dt>
+        <dd class="col-9">Перейти в начало сроки команды</dd>
+
+        <dt class="col-3">Ctrl + E</dt>
+        <dd class="col-9">Перейти в начало сроки команды</dd>
+    </dl>
+</body>
+</html>
