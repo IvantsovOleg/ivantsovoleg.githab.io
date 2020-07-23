@@ -26,6 +26,9 @@
         <dt class="col-3">?</dt>
         <dd class="col-9">Ровно один любой символ</dd>
 
+        <dt class="col-3"><i class="text-muted font-weight-normal">Команда</i> &</dt>
+        <dd class="col-9">Символ амперсанда в конце команды сразу запустит программу в фоновом режиме, таким образом после запуска программы командная строка будет доступна для ввода следующей команды</dd>
+
         <dt class="col-3">Программа < файл</dt>
         <dd class="col-9">Брать исходные данные (stdin) для выполнение программы из файла</dd>
 
@@ -77,6 +80,9 @@
 
         <dt class="col-3">cd <i class="text-muted font-weight-normal">путь</i></dt>
         <dd class="col-9">Перейти в директорию</dd>
+
+        <dt class="col-3">which <i class="text-muted font-weight-normal">программа</i></dt>
+        <dd class="col-9">Узнать в какую директорию инсталирована программа</dd>
 
         <dt class="col-3">jobs</dt>
         <dd class="col-9">Посмотреть запущенные программы</dd>
@@ -230,7 +236,7 @@
                 <dd class="col-9">Опция которая посчитает количество вхождений строки</dd>
             </dl>
             <dl class="row text-muted">
-                <dt class="col-3">-r/dt>
+                <dt class="col-3">-r</dt>
                 <dd class="col-9">Опция которая даст команду программе производить поиск во всех файлах в папке</dd>
             </dl>
         </dd>
@@ -258,6 +264,15 @@
                 <dd class="col-9">Опция сообщающая порт подключения </dd>
             </dl>
         </dd>
+
+        <dt class="col-3">free -g</dt>
+        <dd class="col-9">Информация об оперативной памяти</dd>
+
+        <dt class="col-3">nproc</dt>
+        <dd class="col-9">Информация о количестве ядер в процессоре</dd>
+
+        <dt class="col-3">lscpu</dt>
+        <dd class="col-9">Детальная информация о процессоре (т.ч. тактовая частота)</dd>
     </dl>
 
 
@@ -269,6 +284,15 @@
 
         <dt class="col-3">Ctrl + Alt + t</dt>
         <dd class="col-9">Запуск терминала в графической оболочке</dd>
+
+        <dt class="col-3">Ctrl + Shift + T</dt>
+        <dd class="col-9">Открыть новую вкладку в терминале</dd>
+
+        <dt class="col-3">Alt + <i class="text-muted font-weight-normal"><цифра></i></dt>
+        <dd class="col-9">Перейти в указаную вкладку</dd>
+
+        <dt class="col-3">Ctrl + Shift + W</dt>
+        <dd class="col-9">Закрыть текущую вкладку</dd>
 
         <dt class="col-3">Ctrl + C</dt>
         <dd class="col-9">Прервать выполнение текущей программы</dd>
