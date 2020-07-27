@@ -26,6 +26,12 @@
         <dt class="col-3">?</dt>
         <dd class="col-9">Ровно один любой символ</dd>
 
+        <dt class="col-3">echo $?</dt>
+        <dd class="col-9">Узнать с каким кодом предыдущая программа завершила работу</dd>
+
+        <dt class="col-3">переменная=`<i class="text-muted font-weight-normal">программа</i>`</dt>
+        <dd class="col-9">Запись в переменную результат работы программы</dd>
+
         <dt class="col-3"><i class="text-muted font-weight-normal">Команда</i> &</dt>
         <dd class="col-9">Символ амперсанда в конце команды сразу запустит программу в фоновом режиме, таким образом после запуска программы командная строка будет доступна для ввода следующей команды</dd>
 
@@ -93,15 +99,15 @@
         <dt class="col-3">top</dt>
         <dd class="col-9">Отследить процессы вральном времени
             <dl class="row text-muted">
-                <dt class="col-3">-u <i class="text-muted font-weight-normal"><имя пользователя></i></dt>
+                <dt class="col-3">-u <i class="text-muted font-weight-normal">&#60;имя пользователя&#62;</i></dt>
                 <dd class="col-9">Отслеживать процессы конкретного пользователя</dd>
             </dl>
         </dd>
 
-        <dt class="col-3">kill <i class="text-muted font-weight-normal"><номер процесса></i></dt>
+        <dt class="col-3">kill <i class="text-muted font-weight-normal">&#60;номер процесса&#62;</i></dt>
         <dd class="col-9">Завершить процесс с этим номером
             <dl class="row text-muted">
-                <dt class="col-3">-9 <i class="text-muted font-weight-normal"><номер процесса></i></dt>
+                <dt class="col-3">-9 <i class="text-muted font-weight-normal">&#60;номер процесса&#62;</i></dt>
                 <dd class="col-9">"Убить" (жёстко завершить) процесс с этим номером</dd>
             </dl>
         </dd>
@@ -147,6 +153,26 @@
 
         <dt class="col-3">cat <i class="text-muted font-weight-normal">путь_до_файла</i></dt>
         <dd class="col-9">Вывести содержимое файла на экран</dd>
+
+        <dt class="col-3">set <i class="text-muted font-weight-normal">опции "инструкция" &#60;файл&#62;</i></dt>
+        <dd class="col-9">Потоковый редактор, который читает строчки из stdin (или из файла), обрабатывает их по инструкции и пишет в stdout
+            <dl class="row text-muted">
+                <dt class="col-3">-i, --in-place</dt>
+                <dd class="col-9">Опция, которая перезапишет входной файл</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-r</dt>
+                <dd class="col-9">Опция, которая будет использовать в инструкции регулярные выражения</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-n "x,yp"</dt>
+                <dd class="col-9">Опция, которая выведет строчки с x по y, указанные в инструкции</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">"x,yd"</dt>
+                <dd class="col-9">Инструкция, которая выведет все строчки, кроме строчек с x по y (включительно)</dd>
+            </dl>
+        </dd>
 
         <dt class="col-3">less <i class="text-muted font-weight-normal">путь_до_файла</i></dt>
         <dd class="col-9">Открыть файл на чтение (q - выход, / - поиск, g - в начало, G - в конец)</dd>
@@ -226,10 +252,35 @@
             </dl>
         </dd>
 
-        <dt class="col-3">find <i class="text-muted font-weight-normal"><папка></i> -name <i class="text-muted font-weight-normal">"<имя файла>"</i></dt>
-        <dd class="col-9">Поиск файлов в файловой системе по имени (по части имени)</dd>
+        <dt class="col-3">find <i class="text-muted font-weight-normal">опции</i></dt>
+        <dd class="col-9">Поиск файлов в файловой системе по имени (по части имени)
+            <dl class="row text-muted">
+                <dt class="col-3"><i class="text-muted font-weight-normal">&#60;папка&#62;</i> -name <i class="text-muted font-weight-normal">"&#60;имя файла&#62;"</i></dt>
+                <dd class="col-9">Поиск файлов с именем (частью имени) &#60;имя файла&#62; в папке с именем &#60;папка&#62;</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-iname <i class="text-muted font-weight-normal">"&#60;имя файла&#62;"</i></dt>
+                <dd class="col-9">Опция поиска файлов без учета регистра</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-path <i class="text-muted font-weight-normal">"&#60;путь&#62;"</i></dt>
+                <dd class="col-9">Опция поиска с учетом папок в которых может лежать файл</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-size <i class="text-muted font-weight-normal">"&#60;размер&#62;"</i></dt>
+                <dd class="col-9">Опция поиска с учетом размера файла</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-maxdepth <i class="text-muted font-weight-normal">&#60;число&#62;</i></dt>
+                <dd class="col-9">Опция поиска не более чем на заданное число уровней вниз</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-mindepth <i class="text-muted font-weight-normal">&#60;число&#62;</i></dt>
+                <dd class="col-9">Опция поиска начиная с заданного числа уровней вниз</dd>
+            </dl>
+        </dd>
 
-        <dt class="col-3">grep <i class="text-muted font-weight-normal">опции "<строка>" <файл></i></dt>
+        <dt class="col-3">grep <i class="text-muted font-weight-normal">опции "&#60;строка&#62;" &#60;файл&#62;</i></dt>
         <dd class="col-9">Поиск внутри файла строки с опциями или без
             <dl class="row text-muted">
                 <dt class="col-3">-c</dt>
@@ -238,6 +289,38 @@
             <dl class="row text-muted">
                 <dt class="col-3">-r</dt>
                 <dd class="col-9">Опция которая даст команду программе производить поиск во всех файлах в папке</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-l</dt>
+                <dd class="col-9">Опция которая выдаст список файлов, в которых встречается искомая строка</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-L</dt>
+                <dd class="col-9">Опция которая выдаст список файлов, в которых искомая строка не встречается</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-n</dt>
+                <dd class="col-9">Опция которая выводит номер строки в файле</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-m <i class="text-muted font-weight-normal">&#60;число&#62;</i></dt>
+                <dd class="col-9">Опция которая ограничивает вывод результатов после заданного числа вхождений</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-A <i class="text-muted font-weight-normal">&#60;число&#62;</i></dt>
+                <dd class="col-9">Опция которая дополнительно выводит заданное количество строк после вхождения</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-B <i class="text-muted font-weight-normal">&#60;число&#62;</i></dt>
+                <dd class="col-9">Опция которая дополнительно выводит заданное количество строк до вхождения</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-C <i class="text-muted font-weight-normal">&#60;число&#62;</i></dt>
+                <dd class="col-9">Опция которая дополнительно выводит заданное количество строк вокруг вхождения</dd>
+            </dl>
+            <dl class="row text-muted">
+                <dt class="col-3">-E <i class="text-muted font-weight-normal">"&#60;шаблон&#62;"</i></dt>
+                <dd class="col-9">Опция которая позволяет найти шаблон в файле (используются регулярные выражения)</dd>
             </dl>
         </dd>
 
@@ -288,7 +371,7 @@
         <dt class="col-3">Ctrl + Shift + T</dt>
         <dd class="col-9">Открыть новую вкладку в терминале</dd>
 
-        <dt class="col-3">Alt + <i class="text-muted font-weight-normal"><цифра></i></dt>
+        <dt class="col-3">Alt + <i class="text-muted font-weight-normal">&#60;цифра&#62;</i></dt>
         <dd class="col-9">Перейти в указаную вкладку</dd>
 
         <dt class="col-3">Ctrl + Shift + W</dt>
